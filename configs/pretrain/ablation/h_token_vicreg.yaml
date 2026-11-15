@@ -1,0 +1,4 @@
+_base_: ../pointwm.yaml
+out_dir: runs/pretrain/abl_h_token_vicreg
+model:
+  vicreg: token

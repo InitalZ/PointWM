@@ -1,0 +1,28 @@
+mode: offline
+out_dir: runs/seg_offline
+seed: 0
+init_ckpt: none
+data:
+  root: /path/to/HOI4D_AS_h5
+  split_seed: 17
+  val_frac: 0.1
+  label_frac: 1.0
+  num_points: 2048
+  augment: true
+  workers: 8
+model:
+  dim: 384
+  depth: 6
+  heads: 6
+  dropout: 0.3
+eval:
+  smoothing: 9
+optim:
+  epochs: 30
+  warmup_epochs: 3
+  lr: 1.0e-4
+  lr_end: 1.0e-6
+  batch_size: 8
+  weight_decay: 0.05
+  clip_grad: 10.0
+  amp: true

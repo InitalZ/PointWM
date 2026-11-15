@@ -1,0 +1,4 @@
+_base_: ../last.yaml
+out_dir: runs/pretrain/abl_c_no_block
+model:
+  masks: [causal]

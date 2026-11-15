@@ -1,0 +1,25 @@
+out_dir: runs/msr
+seed: 0
+init_ckpt: none
+data:
+  root: /path/to/MSRAction3D/npz
+  clip_len: 24
+  frame_interval: 1
+  num_points: 2048
+  workers: 8
+model:
+  dim: 384
+  depth: 6
+  heads: 6
+  mlp_dim: 512
+  dropout: 0.5
+optim:
+  epochs: 30
+  warmup_epochs: 3
+  lr: 5.0e-4
+  lr_end: 1.0e-6
+  batch_size: 32
+  eval_batch_size: 64
+  weight_decay: 0.05
+  clip_grad: 10.0
+  amp: true

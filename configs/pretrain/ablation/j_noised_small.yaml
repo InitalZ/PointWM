@@ -1,0 +1,5 @@
+_base_: ../pointwm.yaml
+out_dir: runs/pretrain/abl_j_noised_small
+model:
+  query: noised
+  query_noise_std: 0.02

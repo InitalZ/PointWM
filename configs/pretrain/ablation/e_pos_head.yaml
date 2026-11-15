@@ -1,0 +1,4 @@
+_base_: d_frame_vicreg.yaml
+out_dir: runs/pretrain/abl_e_pos_head
+model:
+  position_head: true

@@ -1,0 +1,4 @@
+_base_: pointwm.yaml
+out_dir: runs/pretrain/teacher_act
+model:
+  latent_action: {source: teacher}

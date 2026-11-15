@@ -1,0 +1,4 @@
+_base_: c_no_block.yaml
+out_dir: runs/pretrain/abl_d_frame_vicreg
+model:
+  vicreg: frame

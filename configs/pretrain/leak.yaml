@@ -1,0 +1,8 @@
+_base_: pointwm.yaml
+out_dir: runs/pretrain/leak
+model:
+  masks: [block, causal]
+  query: target
+  position_head: false
+  latent_action: {enabled: false}
+  vicreg: none

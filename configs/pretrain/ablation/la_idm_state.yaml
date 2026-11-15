@@ -1,0 +1,4 @@
+_base_: ../pointwm.yaml
+out_dir: runs/pretrain/la_idm_state
+model:
+  latent_action: {idm_input: state_delta}

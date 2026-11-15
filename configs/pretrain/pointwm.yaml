@@ -1,0 +1,72 @@
+out_dir: runs/pretrain/pointwm
+seed: 0
+log_every: 50
+ckpt_every: 10
+
+data:
+  root: /path/to/HOI4D_AS_h5
+  split_seed: 17
+  val_frac: 0.1
+  clip_len: 32
+  frame_interval: 2
+  clip_stride: 8
+  num_points: 2048
+  normalize: full
+  workers: 8
+
+model:
+  dim: 384
+  depth: 6
+  heads: 6
+  pred_dim: 256
+  pred_depth: 4
+  pred_heads: 4
+  num_anchors: 64
+  tokenizer:
+    radius: 0.05
+    nsamples: 32
+    spatial_stride: 32
+    temporal_kernel: 3
+    temporal_stride: 1
+  masks: [causal]
+  causal:
+    num_targets: 6
+    gap: 1
+    min_context: 12
+  block:
+    num_blocks: 8
+    temporal_scale: [0.25, 0.50]
+    spatial_scale: [0.15, 0.35]
+    mask_ratio: 0.70
+  query: last_seen
+  query_noise_std: 0.0
+  last_seen_rule: slot
+  position_head: true
+  latent_action:
+    enabled: true
+    source: student
+    act_dim: 8
+    hidden: 256
+    idm_input: delta
+    prior: learned
+    prior_sub_p: 0.3
+    kl_detach: true
+  vicreg: frame
+
+loss:
+  lambda_pos: 5.0
+  beta_q: 0.05
+  free_bits: 0.2
+  beta_p: 0.5
+  lambda_vic: 0.1
+
+optim:
+  epochs: 100
+  warmup_epochs: 15
+  lr: 5.0e-4
+  lr_end: 1.0e-6
+  batch_size: 64
+  weight_decay: 0.05
+  ema: [0.996, 1.0]
+  clip_grad: 10.0
+  amp: true

@@ -1,0 +1,4 @@
+_base_: ../pointwm.yaml
+out_dir: runs/pretrain/abl_i_target_query
+model:
+  query: target

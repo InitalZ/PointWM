@@ -1,0 +1,4 @@
+_base_: ../pointwm.yaml
+out_dir: runs/pretrain/la_fixed_prior
+model:
+  latent_action: {prior: fixed, prior_sub_p: 0.0}

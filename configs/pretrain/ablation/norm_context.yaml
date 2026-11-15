@@ -1,0 +1,4 @@
+_base_: ../pointwm.yaml
+out_dir: runs/pretrain/norm_context
+data:
+  normalize: context

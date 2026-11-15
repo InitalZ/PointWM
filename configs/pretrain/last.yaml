@@ -1,0 +1,4 @@
+_base_: leak.yaml
+out_dir: runs/pretrain/last
+model:
+  query: last_seen
